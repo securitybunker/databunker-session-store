@@ -1,0 +1,27 @@
+{
+  "name": "@databunker/session-store",
+  "version": "1.0.0",
+  "description": "A session store using DataBunker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/securitybunker/databunker-session-store.git"
+  },
+  "keywords": [
+    "session-store",
+    "encryption",
+    "privacy",
+    "gdpr",
+    "databunker",
+    "session"
+  ],
+  "author": "Yuli Stremovsky",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/securitybunker/databunker-session-store/issues"
+  },
+  "homepage": "https://github.com/securitybunker/databunker-session-store#readme"
+}

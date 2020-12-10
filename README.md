@@ -2,6 +2,12 @@
 
 A session store using [DataBunker](https://databunker.org/).
 
+
+Installation
+------------
+
+```npm install --save @databunker/session-store```
+
 Usage
 -----
 
@@ -9,7 +15,7 @@ Usage
 const { v4: uuidv4 } = require('uuid');
 var app = require('express')();
 var session = require('express-session');
-var DataBunkerSessionStore = require('databunker-session-store')(session);
+var DataBunkerSessionStore = require('@databunker/session-store')(session);
 
 var DataBunkerConf = {
   url: 'http://localhost:3000/',
