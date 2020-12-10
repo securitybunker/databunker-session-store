@@ -1,6 +1,6 @@
 # databunker-session-store
 
-A session store using [DataBunker](https://databunker.org/).
+An encrypted session store service using [DataBunker API](https://databunker.org/).
 
 
 Installation
