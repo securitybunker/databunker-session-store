@@ -6,23 +6,23 @@ An encrypted session store service using [DataBunker API](https://databunker.org
 Installation
 ------------
 
-```npm install --save @databunker/session-store```
+```npm install --save uuid axios @databunker/session-store```
 
 Usage
 -----
 
 ```js
 const { v4: uuidv4 } = require('uuid');
-var app = require('express')();
-var session = require('express-session');
-var DataBunkerSessionStore = require('@databunker/session-store')(session);
+const app = require('express')();
+const session = require('express-session');
+const DataBunkerSessionStore = require('@databunker/session-store')(session);
 
-var DataBunkerConf = {
+const DataBunkerConf = {
   url: 'http://localhost:3000/',
   token: 'DEMO'
-}
+};
 
-var mw = session({
+const s = session({
   genid: function(req) {
     return uuidv4();
   },
@@ -32,7 +32,7 @@ var mw = session({
   store: new DataBunkerSessionStore(DataBunkerConf)
 });
 
-app.use(mw);
+app.use(s);
 
 const port = 3200
 const host = '0.0.0.0'
