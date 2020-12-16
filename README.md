@@ -6,7 +6,7 @@ An encrypted session store service using [DataBunker API](https://databunker.org
 Installation
 ------------
 
-```npm install --save uuid axios @databunker/session-store```
+```npm install --save @databunker/session-store```
 
 Usage
 -----
