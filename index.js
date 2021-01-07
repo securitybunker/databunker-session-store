@@ -31,10 +31,10 @@ module.exports = function (session) {
     const headers = {'X-Bunker-Token': this.token};
     axios.get(url, {headers: headers})
       .then(res => {
-        if (res.data.status && res.data.status == "ok") {
+        if (res.data && res.data.status && res.data.status == "ok") {
           cb(null, res.data.data);
 	} else {
-          if (res.data.status && res.data.status == "error") {
+          if (res.data && res.data.status && res.data.status == "error") {
             cb(res.data.message);
 	  } else {
             cb('bad response');
@@ -43,10 +43,10 @@ module.exports = function (session) {
       })
       .catch(err => {
         const res = err.response;
-        if (res.data.status && res.data.status == "error" && res.data.message == "not found") {
+        if (res.data && res.data.status && res.data.status == "error" && res.data.message == "not found") {
           cb(null, null);
 	} else {
-          if (res.data.message) {
+          if (res.data && res.data.message) {
             cb(res.data.message);
 	  } else {
             cb('error');
@@ -60,10 +60,10 @@ module.exports = function (session) {
     const headers = {'X-Bunker-Token': this.token};
     axios.post(url, session, {headers: headers})
       .then(res => {
-        if (res.data.status && res.data.status == "ok") {
+        if (res.data && res.data.status && res.data.status == "ok") {
           cb(null, null);
         } else {
-          if (res.data.status && res.data.status == "error") {
+          if (res.data && res.data.status && res.data.status == "error") {
             cb(res.data.message);
 	  } else {
             cb('error');
@@ -72,7 +72,7 @@ module.exports = function (session) {
       })
       .catch(error => {
         const res = err.response;
-	if (res.data.status && res.data.status == "error" && res.data.message) {
+	if (res.data && res.data.status && res.data.status == "error" && res.data.message) {
           cb(res.data.message);
 	} else {
           cb('error');
