@@ -3,6 +3,16 @@
 An encrypted session store service using [DataBunker API](https://databunker.org/).
 
 
+Prerequisites
+-------------
+You need to have **databunker** service up and running.
+
+You can use the following command to start Databunker in development mode:
+
+```docker run -p 3000:3000 -d --rm --name dbunker securitybunker/databunker demo```
+
+For production use, follow the Databunker installation guide: https://databunker.org/doc/install/
+
 Installation
 ------------
 
