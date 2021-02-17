@@ -1,6 +1,8 @@
 # databunker-session-store
 
-An encrypted session store service using [DataBunker API](https://databunker.org/).
+Databunker Session Store is an encrypted session store service using [DataBunker API](https://databunker.org/).
+
+An in-depth look at [Secure Session Storage](https://databunker.org/use-case/secure-session-storage/).
 
 
 Prerequisites
