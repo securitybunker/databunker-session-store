@@ -31,6 +31,8 @@ const app = require('express')();
 const session = require('express-session');
 const DataBunkerSessionStore = require('@databunker/session-store')(session);
 
+const port = 3200;
+const host = '0.0.0.0';
 const DataBunkerConf = {
   url: 'http://localhost:3000/',
   token: 'DEMO'
@@ -47,9 +49,6 @@ const s = session({
 });
 
 app.use(s);
-
-const port = 3200
-const host = '0.0.0.0'
 
 app.get('/', (req, res) => {
   sess=req.session;
