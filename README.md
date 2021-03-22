@@ -9,7 +9,7 @@ Prerequisites
 -------------
 You need to have **databunker** service up and running.
 
-You can use the following command to start Databunker in development mode:
+For the purpose of testing you can use the following command to start **databunker**:
 
 ```docker run -p 3000:3000 -d --rm --name dbunker securitybunker/databunker demo```
 
