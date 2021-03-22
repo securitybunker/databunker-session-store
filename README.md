@@ -22,8 +22,8 @@ Installation
 ```npm install --save @databunker/session-store```
 
 
-Usage
------
+Node.js example
+---------------
 
 ```js
 const { v4: uuidv4 } = require('uuid');
