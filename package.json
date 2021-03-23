@@ -1,6 +1,6 @@
 {
   "name": "@databunker/session-store",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A session store using DataBunker",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,7 @@
     "url": "git+https://github.com/securitybunker/databunker-session-store.git"
   },
   "keywords": [
+    "compliance",
     "session-store",
     "encryption",
     "privacy",
@@ -25,7 +26,7 @@
   },
   "homepage": "https://github.com/securitybunker/databunker-session-store#readme",
   "dependencies": {
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "uuid": "^8.3.2"
   }
 }
