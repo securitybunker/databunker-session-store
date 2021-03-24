@@ -1,8 +1,8 @@
 # databunker-session-store
 
-The **Databunker Session Store** is an implementation of the Express.js session store that uses [Databunker Secure Session Storage](https://databunker.org/use-case/secure-session-storage/) as the persistence layer for sessions. The session middleware for Express is provided by the **session-express** module. **Databunker** is a Swiss army knife tool for storing personal records or PII: https://databunker.org/.
-
-An in-depth review of the Databunker' [Secure Session Storage](https://databunker.org/use-case/secure-session-storage/).
+The **Databunker Session Store** is an implementation of the Express.js session store that uses [Databunker Secure Session Storage](https://databunker.org/use-case/secure-session-storage/) as the persistence layer for sessions. The session middleware for Express is provided by the **session-express** module. **Databunker** is a Swiss army knife tool for **encrypted storage of personal records or PII**:
+1. https://databunker.org/
+2. https://databunker.org/use-case/privacy-by-design-default/
 
 
 Prerequisites
