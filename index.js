@@ -1,8 +1,12 @@
 const axios = require('axios')
+const http = require('http');
+const https = require('https');
+const util = require('util');
 
-var util = require('util');
-var defaultUrl = 'http://127.0.0.1:3000';
-var defaultToken = 'DEMO';
+const defaultUrl = 'http://127.0.0.1:3000';
+const defaultToken = 'DEMO';
+const httpAgent = new http.Agent({ keepAlive: true });
+const httpsAgent = new https.Agent({ keepAlive: true });
 
 module.exports = function (session) {
   var Store = session.Store
@@ -11,6 +15,9 @@ module.exports = function (session) {
     options = options || {}
     this.srv = options.url ? options.url : defaultUrl;
     this.token = options.token ? options.token : defaultToken;
+    if (this.srv.endsWith("/")) {
+      this.srv = this.srv.slice(0, -1);
+    }
     delete(options.token);
     delete(options.url);
     Store.call(this, options)
@@ -19,17 +26,16 @@ module.exports = function (session) {
   util.inherits(DataBunkerSessionStore, Store)
 
   DataBunkerSessionStore.prototype._getUrl = function(sid) {
-    const lastChar = this.srv.substr(this.srv.length -1);
-    if (lastChar === "/") {
-      return this.srv + "v1/session/" + sid;
-    }
     return this.srv + "/v1/session/" + sid;
   }
 
   DataBunkerSessionStore.prototype.get = function (sid, cb) {
     const url = this._getUrl(sid);
     const headers = {'X-Bunker-Token': this.token};
-    axios.get(url, {headers: headers})
+    const options = {
+        httpAgent, httpsAgent, headers
+    };
+    axios.get(url, options)
       .then(res => {
         if (res.data && res.data.status && res.data.status == "ok") {
           cb(null, res.data.data);
@@ -58,7 +64,10 @@ module.exports = function (session) {
   DataBunkerSessionStore.prototype.set = function (sid, session, cb) {
     const url = this._getUrl(sid);
     const headers = {'X-Bunker-Token': this.token};
-    axios.post(url, session, {headers: headers})
+    const options = {
+        httpAgent, httpsAgent, headers
+    };
+    axios.post(url, session, options)
       .then(res => {
         if (res.data && res.data.status && res.data.status == "ok") {
           cb(null, null);
@@ -83,7 +92,10 @@ module.exports = function (session) {
   DataBunkerSessionStore.prototype.destroy = function (sid, cb) {
     const url = this._getUrl(sid);
     const headers = {'X-Bunker-Token': this.token};
-    axios.delete(url, {headers: headers})
+    const options = {
+        httpAgent, httpsAgent, headers
+    };
+    axios.delete(url, options)
       .then(res => {
         if (cb) {
           cb();
